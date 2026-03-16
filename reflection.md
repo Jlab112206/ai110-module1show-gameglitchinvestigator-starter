@@ -25,7 +25,7 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
   and what it showed you about your code.
 - Did AI help you design or understand any tests? How?
 
----
+--- To determine whether or not a bug was fixed, I loaded up the game and played it for myself, every fix that was suggested to me I tested them to see if claude really did the right edits or not. A test I ran was the 'pytest' in the claude ai chat. AI did somewhat help me, but since claude is so advanced, im still lost on how to do run certain test and functions.
 
 ## 4. What did you learn about Streamlit and state?
 
@@ -39,3 +39,5 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
   - This could be a testing habit, a prompting strategy, or a way you used Git.
 - What is one thing you would do differently next time you work with AI on a coding task?
 - In one or two sentences, describe how this project changed the way you think about AI generated code.
+
+--- I want to reuse claude AI, it helped me within identifying the bugs but also answering all the questions I had. One thing i'd do differently is not rush through my assignments and take notes as I work through each step. Honestly it hasn't changed my mind about AI generated code, but it does have me thinking about my profession. If accesing the correct code or debuggers is this easy/accessable with ai, then a lot of jobs will be replaced with AI.
