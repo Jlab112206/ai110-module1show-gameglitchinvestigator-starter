@@ -32,6 +32,18 @@ st.sidebar.caption(f"Attempts allowed: {attempt_limit}")
 if "secret" not in st.session_state:
     st.session_state.secret = random.randint(low, high)
 
+# FIX: reset the secret when difficulty changes — previously the secret was never
+# updated on difficulty switch, so a secret from Normal (1–100) could remain active
+# in Easy mode (1–20), making valid Easy guesses appear incorrect.
+# Also resets status and attempts so the game doesn't freeze after a win/loss
+# when the player switches difficulty — st.stop() was firing because status remained
+# "won" or "lost" even on a fresh difficulty, blocking all input.
+if st.session_state.get("last_difficulty") != difficulty:
+    st.session_state.secret = random.randint(low, high)
+    st.session_state.last_difficulty = difficulty
+    st.session_state.status = "playing"
+    st.session_state.attempts = 1
+
 if "attempts" not in st.session_state:
     st.session_state.attempts = 1
 
@@ -100,7 +112,7 @@ if submit:
         # FIX: check_guess now returns only the outcome string (not a tuple),
         # so message is derived here for UI display instead of coming from logic
         outcome = check_guess(guess_int, secret)
-        hint_messages = {"Win": "🎉 Correct!", "Too High": "📈 Go HIGHER!", "Too Low": "📉 Go LOWER!"}
+        hint_messages = {"Win": "🎉 Correct!", "Too High": "📉 Go LOWER!", "Too Low": "📈 Go HIGHER!"}
 
         if show_hint:
             st.warning(hint_messages.get(outcome, ""))

@@ -30,6 +30,7 @@ The games purpose is to allow the user to guess any number between 1-100 within 
 - [ ] Detail which bugs you found.
 Whenever I tired to restart the app after i've used my attempts, the game freezes. Even whenever I try to switch difficulties, nothing happens.
 - [ ] Explain what fixes you applied.
+for logic_utils.py, the fixes claud ai and I applied were the hard difficulty range (line 8), check_guess return typr(line 49), and the range validation in parse_guess(line33). For app.py, the hint messages were swapped(line 103), and secret cast to string was also fixed(line 98)
 
 ## 📸 Demo
 
